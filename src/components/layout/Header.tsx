@@ -1,7 +1,6 @@
-import { View, Text, StyleSheet, Pressable, TextInput, useWindowDimensions, Platform } from 'react-native';
+import { View, Text, StyleSheet, Pressable, TextInput, useWindowDimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { BlurView } from 'expo-blur';
 import { NasaLogo } from '../ui/NasaLogo';
 
 export function Header() {
@@ -10,33 +9,26 @@ export function Header() {
   const isMobile = width < 768;
 
   return (
-    <BlurView intensity={Platform.OS === 'web' ? 80 : 40} tint="dark" style={styles.headerContainer}>
+    <View style={styles.headerContainer}>
       <View style={styles.content}>
-        
-        {/* Izquierda: Menú Explorar (Estructura formal) */}
         <View style={styles.leftSection}>
           <Pressable style={styles.menuButton}>
             <Ionicons name="menu-outline" size={28} color="#FFFFFF" />
             {!isMobile && <Text style={styles.menuText}>EXPLORAR</Text>}
           </Pressable>
         </View>
-
-        {/* Centro: Logotipo (Original tuyo centrado) */}
         <Pressable onPress={() => router.push('/')} style={styles.centerSection}>
-          {/* El componente escala tu SVG original */}
-          <NasaLogo width={80} height={65} /> 
+          <NasaLogo width={80} height={65} />
         </Pressable>
-
-        {/* Derecha: Búsqueda (Input moderno y limpio) */}
         <View style={styles.rightSection}>
           {!isMobile ? (
             <View style={styles.searchContainer}>
-              <TextInput 
+              <TextInput
                 style={styles.searchInput}
                 placeholder="Buscar..."
-                placeholderTextColor="#A0AAB5"
+                placeholderTextColor="#9CA3AF"
               />
-              <Ionicons name="search" size={18} color="#A0AAB5" />
+              <Ionicons name="search" size={18} color="#9CA3AF" />
             </View>
           ) : (
             <Pressable>
@@ -44,9 +36,8 @@ export function Header() {
             </Pressable>
           )}
         </View>
-
       </View>
-    </BlurView>
+    </View>
   );
 }
 
@@ -58,8 +49,9 @@ const styles = StyleSheet.create({
     height: 80,
     justifyContent: 'center',
     zIndex: 1000,
+    backgroundColor: '#000000',
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 255, 255, 0.08)',
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   content: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
@@ -72,9 +64,10 @@ const styles = StyleSheet.create({
   menuText: { color: '#FFFFFF', fontSize: 15, fontWeight: '700', letterSpacing: 2 },
   searchContainer: {
     flexDirection: 'row', alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: 20,
-    borderWidth: 1, borderColor: 'rgba(255,255,255,0.1)',
+    backgroundColor: 'rgba(255,255,255,0.1)',
+    borderRadius: 20,
+    borderWidth: 1, borderColor: 'rgba(255,255,255,0.15)',
     paddingHorizontal: 16, height: 40, width: 220,
   },
-  searchInput: { flex: 1, color: '#FFF', outlineStyle: 'none', marginRight: 8 },
+  searchInput: { flex: 1, color: '#FFF', marginRight: 8 },
 });

@@ -1,9 +1,10 @@
 export const colors = {
-  background: '#070514', // Fondo oscuro profundo (casi negro con un toque morado)
-  surface: 'rgba(255, 255, 255, 0.05)', // Base para el glassmorphism
-  surfaceBorder: 'rgba(255, 255, 255, 0.1)', // Borde sutil del cristal
-  primary: '#8B5CF6', // Púrpura vibrante
-  primaryLight: '#C084FC',
-  textMain: '#FFFFFF',
-  textMuted: '#A78BFA', // Púrpura muy claro/desaturado para texto secundario
+  background: '#FFFFFF',
+  text: '#111827',
+  textSecondary: '#4B5563',
+  textMuted: '#9CA3AF',
+  accent: '#2563EB',
+  primary: '#2563EB',
+  surface: '#F3F4F6',
+  surfaceBorder: 'rgba(0, 0, 0, 0.08)',
 };
